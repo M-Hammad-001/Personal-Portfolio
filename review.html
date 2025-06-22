@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leave a Review</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+    }
+    h2 {
+      color: #fff;
+      transition: color 0.3s;
+    }
+    h2:hover {
+      color: #ffbd39;
+    }
+    label {
+      color: #fff;
+    }
+    .form-control, .form-select {
+      background-color: #222;
+      color: #fff;
+      border: 1px solid #444;
+    }
+    .form-control::placeholder {
+      color: #aaa;
+    }
+    .btn-primary {
+      background-color: #ffbd39;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #e0a800;
+    }
+    .rating-stars {
+      color: gold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-5">
+    <h2 class="text-center mb-4">Leave a Review</h2>
+    <form id="reviewForm" class="p-4 bg-dark shadow rounded">
+      <div class="form-group mb-3">
+        <label for="name">Your Name</label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="application">Project Type</label>
+        <select class="form-control" id="application">
+          <option>HTML, CSS, JS</option>
+          <option>React</option>
+          <option>WordPress</option>
+          <option>Shopify</option>
+          <option>Web Development Competition</option>
+          <option value="custom">Other</option>
+        </select>
+        <input type="text" class="form-control mt-2" id="customApp" placeholder="Specify your project type" style="display: none;">
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="platform">How We Connected</label>
+        <select class="form-control" id="platform">
+          <option>Upwork</option>
+          <option>Freelancer</option>
+          <option>LinkedIn</option>
+          <option>Instagram</option>
+          <option>Facebook</option>
+          <option>Whatsapp</option>
+          <option value="custom">Other</option>
+        </select>
+        <input type="text" class="form-control mt-2" id="customPlatform" placeholder="Specify the platform" style="display: none;">
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="rating">Rating</label>
+        <select class="form-control rating-stars" id="rating" required>
+          <option value="5">★★★★★ (5)</option>
+          <option value="4">★★★★☆ (4)</option>
+          <option value="3">★★★☆☆ (3)</option>
+          <option value="2">★★☆☆☆ (2)</option>
+          <option value="1">★☆☆☆☆ (1)</option>
+        </select>
+      </div>
+
+      <div class="form-group mb-4">
+        <label for="message">Client Message</label>
+        <textarea class="form-control" id="message" rows="4" required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary py-3 w-100">Submit Review</button>
+    </form>
+  </div>
+
+  <script>
+    const appSelect = document.getElementById('application');
+    const customApp = document.getElementById('customApp');
+    appSelect.addEventListener('change', function() {
+      customApp.style.display = appSelect.value === 'custom' ? 'block' : 'none';
+    });
+
+    const platformSelect = document.getElementById('platform');
+    const customPlatform = document.getElementById('customPlatform');
+    platformSelect.addEventListener('change', function() {
+      customPlatform.style.display = platformSelect.value === 'custom' ? 'block' : 'none';
+    });
+
+    document.getElementById('reviewForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      let application = appSelect.value;
+      const customAppVal = customApp.value.trim();
+      if (application === 'custom' && customAppVal !== '') application = customAppVal;
+
+      let platform = platformSelect.value;
+      const customPlatformVal = customPlatform.value.trim();
+      if (platform === 'custom' && customPlatformVal !== '') platform = customPlatformVal;
+
+      const rating = parseInt(document.getElementById('rating').value);
+      const message = document.getElementById('message').value;
+
+      const newReview = { name, application, platform, rating, message };
+      const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+      reviews.push(newReview);
+      localStorage.setItem('reviews', JSON.stringify(reviews));
+
+      alert('Thank you for your review!');
+      window.close();
+    });
+  </script>
+</body>
+</html>
