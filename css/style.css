@@ -9739,3 +9739,88 @@ textarea.form-control {
   margin-bottom: 40px;
 }
 
+@media (max-width: 768px)
+{
+.about-first  
+{
+  padding: 20 0 0 15;
+}
+
+.skill-mf 
+{
+  margin-top: 5px;
+  padding-left: 10px;
+}
+
+.about-heading
+{
+  padding: 20 0 0 5;
+}
+
+.about-describe
+{
+  padding: 0 0 0 7;
+  text-align: justify;
+}
+
+.about-info
+{
+   padding: 0 0 0 50; 
+}
+
+.text-projects
+{
+  margin-top: 10px;
+}
+
+.block-20 {
+  width: 100% !important;
+  display: block;
+  background-size: cover;
+  background-position: center;
+  margin-left: 5px;
+}
+
+.resume-wrap
+{
+  width: 100% !important;
+  display: block;
+  background-size: cover;
+  background-position: center;
+  margin-left: 5px;
+}
+
+.block-10
+{
+  border: none;
+  margin-left: 5px;
+}
+}
+
+
+/* Default: display all inline */
+.ftco-footer-social li {
+  display: inline-block;
+  margin: 0 8px;
+}
+
+/* Mobile-specific: stack after 4 icons */
+@media (max-width: 768px) {
+  .ftco-footer-social {
+    flex-wrap: wrap;
+  }
+
+  .ftco-footer-social li {
+    width: 25%; /* 4 icons per row */
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  /* Optional: Align first text “Find me on” full width on top */
+  .ftco-footer-social li:first-child {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+}
+
