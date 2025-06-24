@@ -9791,6 +9791,11 @@ textarea.form-control {
     margin-bottom: 30px;
   }  
 
+.container-counter
+{
+  margin-bottom: 60px;
+}
+
 .resume-wrap
 {
   width: 100% !important;
