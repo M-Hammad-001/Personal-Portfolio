@@ -9748,7 +9748,7 @@ textarea.form-control {
 
 .skill-mf 
 {
-  margin-top: 5px;
+  margin-top: 20px;
   padding-left: 10px;
 }
 
@@ -9773,13 +9773,18 @@ textarea.form-control {
   margin-top: 10px;
 }
 
-.block-20 {
+.block-20,.block-18,.about-img {
   width: 100% !important;
   display: block;
   background-size: cover;
   background-position: center;
   margin-left: 5px;
 }
+
+.about-img
+  {
+    margin-bottom: 30px;
+  }  
 
 .resume-wrap
 {
@@ -9795,6 +9800,13 @@ textarea.form-control {
   border: none;
   margin-left: 5px;
 }
+
+.icon-adjust
+{
+ margin-top: 11px;
+ margin-left: 6px;
+}  
+  
 }
 
 
